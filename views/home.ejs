@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 </head>
 <body>
     <div id="outer">
@@ -52,11 +54,47 @@
                 </button>
 
             </span>
-        
+
+
         </form>
 
 
     </div>
+
+    <% for(let i of taskList){ %>
+
+    <div id ="cards">
+       
+        <div id="check">
+        <input type="checkbox" id="scales" value="delete"name="delet" >
+        </div>
+        <div id ="inside">
+            <div id="des">
+                <i class="fas fa-clipboard"></i>
+                <%= i.description %>
+
+            </div>
+            <div id="dueDate">
+                <% dateString = new Date(i.dueDate).toUTCString();
+                dateString = dateString.split(' ').slice(0, 4).join(' '); %>
+                <%= dateString %>
+            </div>
+
+        </div>
+
+        <div id ="category">
+
+            <%= i.category %>
+
+        </div>
+
+
+
+
+    </div>
+
+    <% } %>
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
