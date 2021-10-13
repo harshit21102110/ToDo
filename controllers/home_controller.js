@@ -5,13 +5,40 @@ module.exports.home = function(req,res){
     task.find({},function(err ,task){
         if(err)
         console.log('There was an error in the DB');
-        console.log(task);
         return res.render('home.ejs',{
             title: "ToDo Application",
             taskList: task
         });
     });
 }
+
+
+module.exports.delete = function(req,res){
+
+    console.log(req);
+    let id = req.query.delet;
+
+    console.log(id.length);
+    console.log(id);
+
+
+
+    for(let i=0; i < id.length ; i++){
+        console.log(id[i]);
+        
+        // finding and deleting tasks from the DB one by one using id
+        task.findByIdAndDelete(id[i], function(err){
+        if(err){
+            console.log('error in deleting task');
+            }
+        })
+    }
+
+
+    return res.redirect('back'); 
+
+
+};
 
 
 

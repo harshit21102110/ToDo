@@ -15,5 +15,5 @@ const addController = require('../controllers/add');
 
 router.post('/post_task',addController.add);
 
-
+router.get('/delete_task',homeController.delete);
 module.exports = router ;
