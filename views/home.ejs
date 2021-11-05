@@ -45,7 +45,7 @@
                 
               </span>
               <span>
-                <button id="buttn"class="favorite styled" type="submit">   
+                <button id="buttn"class="favorite styled" style ="font-size:14px"type="submit">   
                     Add Task    
                 </button>
               </span>
@@ -64,12 +64,12 @@
 
     </div>
 
-    <form action="/delete_task" method="get">
-
     <% for(let i of taskList){ %>
+    <form action="/delete_task/?id=<%= i.id %>" method="get">
+
     <div id ="cards">
         <div id="check">
-        <input type="checkbox" id="<%= i.id %>" value="<%= i.id %>" name="delet" >
+        <input type="checkbox" id="<%= i.id %>" value="<%= i.id %>" name="<%= i.id %>" >
         </div>
         <div id ="inside">
             <div id="des">
@@ -97,9 +97,8 @@
 
     <% } %>
 
-    <button type="submit">
-        SUBMIT
-    </button>
+    <button type="submit" style="width:100%;height:40px ; background-color:slategray;color :white ;font-size:25px"class="btn btn-primary btn-lg btn-block">DELETE TASK </button>
+
 
 </form>
     </div>
